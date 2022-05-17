@@ -2,10 +2,21 @@ import React from 'react'
 
 import  { Container } from './styles';
 
-export const ModelSection: React.FC = () => {
+interface Props extends React.HTMLAttributes<HTMLDivElement> {
+    modelName: string;
+    overlayNode: React.ReactNode;
+}
+
+export const ModelSection: React.FC<Props> = ({
+    modelName, 
+    overlayNode, 
+    children, 
+    ...props
+}) => {
+    
     return (
-        <Container>
-            
+        <Container {...props} >
+            {children}
         </Container>
     )
 }
