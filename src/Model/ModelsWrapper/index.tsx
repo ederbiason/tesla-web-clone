@@ -33,6 +33,10 @@ export const ModelsWrapper: React.FC<Props> = ({ children }) => {
             getModelByName
         }}>
             <Container ref={wrapperRef}>
+                <OverlaysRoot>
+                    
+                </OverlaysRoot>
+
                 {children}
             </Container>
         </ModelsContext.Provider>
