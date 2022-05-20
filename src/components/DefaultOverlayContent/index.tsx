@@ -19,7 +19,7 @@ export const DefaultOverlayContent: React.FC<Props> = ({
 
             <Buttons>
                 <button>Custom Order</button>
-                <button className="white">Existing Invertory</button>
+                <button className="white">Existing Inventory</button>
             </Buttons>
         </Container>
     )

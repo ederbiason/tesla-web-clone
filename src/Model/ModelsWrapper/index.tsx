@@ -1,7 +1,7 @@
 import React, { ReactNode, useCallback, useRef, useState } from 'react'
 import ModelsContext, { CarModel } from '../ModelsContext';
 
-import  { Container } from './styles';
+import  { Container, OverlaysRoot, ModelOverlay } from './styles';
 
 type Props = {
     children: ReactNode;
@@ -34,7 +34,11 @@ export const ModelsWrapper: React.FC<Props> = ({ children }) => {
         }}>
             <Container ref={wrapperRef}>
                 <OverlaysRoot>
-                    
+                    {registeredModels.map(item => (
+                        <ModelOverlay key={item.modelName}>
+                            {item.overlayNode}
+                        </ModelOverlay>
+                    ))}
                 </OverlaysRoot>
 
                 {children}
