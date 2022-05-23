@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import styled from 'styled-components'
 import { LogoSVG, BurgerSVG } from './IconSVG'
 
@@ -35,7 +36,7 @@ export const Burger = styled(BurgerSVG)`
     padding-right: 5px;
 `
 
-export const Footer = styled.footer`
+export const Footer = styled(motion.footer)`
     position: fixed;
     bottom: 0;
     right: 0;
