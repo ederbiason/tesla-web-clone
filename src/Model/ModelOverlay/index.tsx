@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import { useWrapperScroll } from '../../hooks/useWrapperScroll';
 import { Container } from './styles';
 
 type Props = {
@@ -6,6 +7,8 @@ type Props = {
 }
 
 const ModelOverlay: React.FC<Props> = ({ children }) => {
+    const { scrollY } = useWrapperScroll()
+
     return (
         <Container>
             {children}

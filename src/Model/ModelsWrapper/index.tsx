@@ -1,7 +1,7 @@
 import React, { ReactNode, useCallback, useRef, useState } from 'react'
 
 import ModelOverlay from '../ModelOverlay';
-import ModelsContext, { CarModel } from '../ModelsContext';
+import ModelsContext, { CarModel } from '../../contexts/ModelsContext';
 
 import  { Container, OverlaysRoot } from './styles';
 

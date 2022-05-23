@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 
-import { useModel } from '../ModelsWrapper/useModel';
+import { useModel } from '../../hooks/useModel';
 
 import  { Container } from './styles';
 
