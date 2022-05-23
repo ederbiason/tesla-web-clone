@@ -17,8 +17,8 @@ const ModelOverlay: React.FC<Props> = ({ children, model }) => {
 
     const getSectionDimensions = useCallback(() => {
         return { 
-            offsetTop: model.sectionRef.current?.offsetTop,
-            offsetHeight: model.sectionRef.current?.offsetHeight
+            offsetTop: model.sectionRef.current?.offsetTop ?? 0,
+            offsetHeight: model.sectionRef.current?.offsetHeight ?? 0
         } as SectionDimensions
     }, [model.sectionRef])
 
@@ -29,13 +29,13 @@ const ModelOverlay: React.FC<Props> = ({ children, model }) => {
     // Trabalha melhor com responsividade
     useLayoutEffect(() => {
         function onResize() {
-            window.requestAnimationFrame(() =>setDimensions(getSectionDimensions()))
+            window.requestAnimationFrame(() => setDimensions(getSectionDimensions()))
         }
 
         window.addEventListener('resize', onResize)
 
         return () => window.removeEventListener('resize', onResize)
-    }, [getSectionDimensions])
+    }, [getSectionDimensions, model.sectionRef])
 
     const { scrollY } = useWrapperScroll()
 
@@ -43,8 +43,12 @@ const ModelOverlay: React.FC<Props> = ({ children, model }) => {
 
     const opacity = useTransform(sectionScrollProgress, [-0.42, -0.05, 0.05, 0.42], [0, 1, 1, 0])
 
+    const pointerEvents = useTransform(opacity, value => 
+            value > 0 ? 'auto' : 'none'
+        )
+
     return (
-        <Container style={{ opacity }}>
+        <Container style={{ opacity, pointerEvents }}>
             {children}
         </Container>
     )
