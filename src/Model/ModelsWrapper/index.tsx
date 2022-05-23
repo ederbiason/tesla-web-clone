@@ -1,7 +1,9 @@
 import React, { ReactNode, useCallback, useRef, useState } from 'react'
+
+import ModelOverlay from '../ModelOverlay';
 import ModelsContext, { CarModel } from '../ModelsContext';
 
-import  { Container, OverlaysRoot, ModelOverlay } from './styles';
+import  { Container, OverlaysRoot } from './styles';
 
 type Props = {
     children: ReactNode;
